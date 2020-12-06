@@ -57,14 +57,7 @@ export default class weather extends Component {
                 </div>
               </div>
               <div class="card2 col-lg-4 col-md-5">
-                {/* <div class="row px-3"> <input type="text" name="location" placeholder="Another location" class="mb-5" />
-                  <div class="fa fa-search mb-5 mr-0 text-center"></div>
-                </div> */}
                 <div class="mr-5">
-                  {/* <p class="light-text suggestion">Birmingham</p>
-                  <p class="light-text suggestion">Manchester</p>
-                  <p class="light-text suggestion">New York</p>
-                  <p class="light-text suggestion">California</p> */}
                   <div class="line my-5"></div>
                   <p>Weather Details</p>
                   <div class="row px-3">
