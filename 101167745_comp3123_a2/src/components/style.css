@@ -1,21 +1,17 @@
 body {
     color: #fff;
     overflow-x: hidden;
-    height: 100%;
-    background-image: linear-gradient(#191970, #191970);
     background-repeat: no-repeat
 }
 
 .card0 {
-    width: 94%;
+    width: 98.5%;
 
 }
 
 .card1 {
-    /* height: 100%; */
-    background-image: linear-gradient(#2196F3, #81D4FA);
-    /* padding: 30px 20px 30px 50px; */
-    
+    height: 900px;
+    background-image: linear-gradient(#2196F3, #81D4FA);    
 }
 
 .image {
@@ -33,19 +29,10 @@ body {
 }
 
 .card2 {
-    background-color: #607D8B;
+    background-image: linear-gradient(#2196F3, #81D4FA);
     /* padding: 0px 0px 40px 40px */
-}
-
-input {
-    background-color: #607D8B;
-    padding: 24px 0px 12px 0px !important;
-    width: 80%;
-    box-sizing: border-box;
-    border: none !important;
-    border-bottom: 1px solid #CFD8DC !important;
-    font-size: 16px !important;
-    color: #fff !important
+    color: white;
+    font-weight: bold;
 }
 
 input:focus {
@@ -80,7 +67,7 @@ input:focus {
 }
 
 .light-text {
-    color: #B0BEC5
+    color: white
 }
 
 .suggestion:hover {
@@ -89,12 +76,10 @@ input:focus {
 }
 
 .line {
-    height: 1px;
-    background-color: #B0BEC5
+    height: 2px;
+    background-color: white
 }
 
-/* @media screen and (max-width: 500px) {
-    .card1 {
-        padding-left: 26px
-    }
-} */
+.hi {
+    padding-bottom: 90px;
+}
