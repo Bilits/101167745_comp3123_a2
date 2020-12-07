@@ -3,7 +3,7 @@ import axios from './axios'
 import style from './style.css';
 import Card from 'react-bootstrap/Card'
 import CardDeck from 'react-bootstrap/CardDeck'
-import { CardGroup } from 'react-bootstrap';
+import { CardGroup, Image } from 'react-bootstrap';
 
 export default class weather extends Component {
   constructor(props) {
@@ -19,6 +19,7 @@ export default class weather extends Component {
       data: null,
       wind: null,
       coord: null,
+      icon: null,
       isMounted: false,
       currentDateTime: time,
       currentDate: date
@@ -32,7 +33,10 @@ export default class weather extends Component {
         const data = res.data
         const wind = res.data.wind
         const coord = res.data.coord
-        this.setState({ main: main, coord: coord, weather: weather, data: data, wind: wind, isMounted: true })
+        let icon = `http://openweathermap.org/img/wn/${weather.icon}@2x.png`
+        console.log(weather.icon)
+
+        this.setState({ main: main, coord: coord, weather: weather, data: data, wind: wind, icon: icon, isMounted: true })
       })
       .catch((error) => {
         console.log(error)
@@ -43,7 +47,7 @@ export default class weather extends Component {
     this.getWeatherData()
   }
   render() {
-    const { main, isMounted, weather, data, coord, wind } = this.state
+    const { icon, main, isMounted, weather, data, coord, wind } = this.state
     if (isMounted) {
       return (
 
@@ -61,7 +65,7 @@ export default class weather extends Component {
                 <div class="hi row px-3 mt-3 mb-3">
                   <h1 class="large-font mr-3">{main.temp}&#176;</h1>
                   <div class="d-flex flex-column mr-3">
-                    <h2 class="mt-3 mb-0">{weather.description}  <small><img src="http://openweathermap.org/img/wn/01d@2x.png" alt="this is weather forecast" width="20px"></img></small></h2> <small>{this.state.currentDateTime} {this.state.currentDate}</small>
+                    <h2 class="mt-3 mb-0">{weather.description}  <img src={icon} style={{ width: '5rem' }} /></h2> <small>{this.state.currentDateTime} {this.state.currentDate}</small>
                   </div>
                 </div>
                 <CardGroup>
@@ -70,20 +74,18 @@ export default class weather extends Component {
                       <Card.Title>Longitude</Card.Title>
                       <Card.Subtitle className="mb-2 text-muted">{coord.lon}</Card.Subtitle>
                       <Card.Text>
-                      Longitude is the measurement east or west of the prime meridian. Longitude is measured by imaginary lines that run around the Earth vertically
-
-    </Card.Text>
+                        Longitude is the measurement east or west of the prime meridian. Longitude is measured by imaginary lines that run around the Earth vertically
+                      </Card.Text>
                     </Card.Body>
                   </Card>
-
                   <Card style={{ width: '18rem' }}>
                     <Card.Body>
                       <Card.Title>Latitude</Card.Title>
                       <Card.Subtitle className="mb-2 text-muted">{coord.lat}</Card.Subtitle>
                       <Card.Text>
-                      the angular distance of a place north or south of the earth's equator, or of a celestial object north or south of the celestial equator
-    </Card.Text>
-                   
+                        the angular distance of a place north or south of the earth's equator, or of a celestial object north or south of the celestial equator
+                      </Card.Text>
+
                     </Card.Body>
                   </Card>
                   <Card style={{ width: '18rem' }}>
@@ -91,15 +93,13 @@ export default class weather extends Component {
                       <Card.Title>Humidity</Card.Title>
                       <Card.Subtitle className="mb-2 text-muted">{main.humidity}%</Card.Subtitle>
                       <Card.Text>
-                      Humidity is the concentration of water vapor present in the air. Water vapor, the gaseous state of water, is generally invisible to the human eye
-    </Card.Text>
-                
+                        Humidity is the concentration of water vapor present in the air. Water vapor, the gaseous state of water, is generally invisible to the human eye
+                      </Card.Text>
+
                     </Card.Body>
                   </Card>
-
                 </CardGroup>
               </div>
-
               <div class="card2 col-lg-4 col-md-5">
                 <div class="mr-5">
                   <div class="line my-5"></div>
